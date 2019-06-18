@@ -33,12 +33,12 @@ def get_filters():
         (str) month - name of the month to filter by, or "all" to apply no month filter
         (str) day - name of the day of week to filter by, or "all" to apply no day filter
     """
-    
-    
+
+
     print('Hello! Let\'s explore some US bikeshare data!')
-     
-    # get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs  
-    
+
+    # get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
+
     print('\nEnter the name of the city.. Please choose only one city: Chicago, New York City or Washington...\n')
 
     test_city = ['chicago', 'new york city', 'washington']
@@ -48,13 +48,13 @@ def get_filters():
         if city in test_city:
             break
         else: print('\nInvalid city name. Please choose only one city: Chicago, New York City or Washington\n')
-    
+
     # get user input for month (all, january, february, ... , june)
-    
+
     test_month = ['january', 'february', 'march', 'april', 'may', 'june']
-    
+
     print('\nPlease choose the month of the year: Choose from January to June...\n')
-    
+
     while True:
         month = input().lower()
         if month =='all':
@@ -62,13 +62,13 @@ def get_filters():
         elif month in test_month:
             break
         else: print('\nSorry, there is no record. Choice from January to June\n')
-    
+
     # get user input for day of week (all, monday, tuesday, ... sunday)
-    
+
     test_day = ['monday' , 'tuesday', 'wednesday' , 'thrusday' , 'friday' , 'saturday', 'sunday']
-    
+
     print('\nPlease choose a day of the week...\n')
- 
+
     while True:
         day = input().lower()
         if day == 'all':
@@ -76,7 +76,7 @@ def get_filters():
         elif day in test_day:
             break
         else: print('\nSorry, this is not a valid day. Choose a valid day\n')
-            
+
     print('-'*40)
     return city, month, day
 
@@ -137,13 +137,13 @@ def time_stats(df):
     month_common = df['month'].max()
 
     # display the most common day of week
-    
+
     day_common = df['day_of_week'].max()
 
     # display the most common start hour
 
     start_common = df['Start Time'].max()
-    
+
     print('Time Stats..')
     print('Most frequent month: ' ,  month_common)
     print('Most frequent day of the week: ' ,  day_common)
@@ -163,17 +163,17 @@ def station_stats(df):
     start_time = time.time()
 
     # display most commonly used start station
-    
+
     station_start_common = df['Start Station'].max()
 
     # display most commonly used end station
-    
+
     station_end_common = df['End Station'].max()
 
     # display most frequent combination of start station and end station trip
-    
+
     comb_station = (df['Start Station'] + '  ' + df['End Station']).max()
-    
+
     print('Station Stats..')
     print('Most commonly used start station:  ', station_start_common)
     print('Most commonly used end station:  ', station_end_common)
@@ -193,13 +193,13 @@ def trip_duration_stats(df):
     start_time = time.time()
 
     # display total travel time
-    
+
     total_travel_time = df['Trip Duration'].sum()
 
     # display mean travel time
-    
+
     mean_travel_time = df['Trip Duration'].mean()
-    
+
     print('Trip Duration Stats..')
     print('Total travel time:  ' , total_travel_time)
     print('Mean travel time:  ' , mean_travel_time )
@@ -218,23 +218,23 @@ def user_stats(df):
     start_time = time.time()
 
     # Display counts of user types
-    
+
     total_user_types = df['User Type'].value_counts()
-    
-    
+
+
     # Display counts of gender
-    
-    if 'Gender' in df.columns:    
+
+    if 'Gender' in df.columns:
         gender = df['Gender'].dropna().unique()
-        total_gender = len(gender) 
+        total_gender = len(gender)
 
         print('Gender types:  ' , gender)
         print('Total genders:  ' , total_gender)
 
     # Display earliest, most recent, and most common year of birth
-    
+
     if 'Birth Year' in df.columns:
-    
+
         recent_birth = df['Birth Year'].dropna()
         recent_birth = recent_birth.astype(int)
         recent_birth = recent_birth.max()
@@ -243,12 +243,12 @@ def user_stats(df):
         comon_year = comon_year.astype(int)
         comon_year = comon_year.value_counts().index[0]
 
-        print('Most recent year of birth: ' , recent_birth)        
+        print('Most recent year of birth: ' , recent_birth)
         print('Most common year of birth: ' , comon_year)
-    
+
     print('User types:  ' , total_user_types)
-   
-    
+
+
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
@@ -265,14 +265,14 @@ def main():
         station_stats(df)
         trip_duration_stats(df)
         user_stats(df)
-        
+
         while True:
             data_raw = input('\nWould you like to see five rows of raw data? Enter yes or no.\n')
-            if data_raw.lower() == 'no':                
-                break     
-            else: print(df.iloc[:6]) 
+            if data_raw.lower() == 'no':
+                break
+            else: print(df.iloc[:6])
             break
-  
+
         restart = input('\nWould you like to restart? Enter yes or no.\n')
         if restart.lower() != 'yes':
             break
@@ -283,6 +283,4 @@ if __name__ == "__main__":
 
 # In[ ]:
 
-
-
-
+# Primeiro comentário para controle de versões.
