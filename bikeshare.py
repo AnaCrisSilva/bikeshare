@@ -1,4 +1,6 @@
 
+# Segundo comentário para controle de versões.
+
 # coding: utf-8
 
 # # Importing Libraries
@@ -282,5 +284,8 @@ if __name__ == "__main__":
 
 
 # In[ ]:
+<<<<<<< HEAD
 
 # Primeiro comentário para controle de versões.
+=======
+>>>>>>> refactoring
